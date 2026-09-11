@@ -1,0 +1,18 @@
+{
+  "run_name": "ablation_topk",
+  "router_type": "fixed_topk",
+  "mode": "mlp_only",
+  "seed": 1337,
+  "eval_iters": 20,
+  "batch_size": 32,
+  "block_size": 256,
+  "n_layer": 12,
+  "capacity": 0.5,
+  "capacity_source": "cfg.topk_capacity (exact, training hyperparameter)",
+  "trained_avg_depth": 3.1671254634857178,
+  "dense_val_lm_local": 3.933917021751404,
+  "dense_val_lm_training_logged": 3.913937568664551,
+  "hard_skip_val_lm": 3.9339170694351195,
+  "hard_skip_val_avg_depth": 3.1670242309570313,
+  "delta_hard_skip_minus_dense": 4.7683715642676816e-08
+}

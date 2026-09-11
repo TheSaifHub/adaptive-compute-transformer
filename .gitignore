@@ -1,0 +1,28 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# data & artifacts
+data/
+*.bin
+*.pt
+*.ckpt
+wandb/
+experiments/*/checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# .md files
+CLAUDE.md
+DECISIONS.md
+interview-prep.md
+learning.md
+memory.md
+product.md
+final-interview-prep.md

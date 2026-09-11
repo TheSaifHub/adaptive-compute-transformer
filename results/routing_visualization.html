@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Adaptive routing visualization</title>
+  <style>
+    body {
+      font-family: -apple-system, Segoe UI, sans-serif;
+      margin: 2rem;
+      background: #fafafa;
+      color: #111;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+    }
+
+    .columns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 320px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .column h2 {
+      font-size: 1rem;
+      margin-top: 0;
+    }
+
+    .sentence {
+      line-height: 2.6;
+      margin: 1rem 0;
+      font-size: 1.05rem;
+    }
+
+    .tok {
+      padding: 0.1em 0.05em;
+      border-radius: 3px;
+    }
+
+    .legend {
+      margin: 1.5rem 0;
+    }
+
+    .legend-bar {
+      height: 18px;
+      width: 300px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #ffffcc, #fee187, #feab49, #fc5b2e, #d41020, #800026);
+    }
+
+    .legend-labels {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .note {
+      color: #555;
+      font-size: 0.85rem;
+      max-width: 700px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Adaptive-Compute Transformer &mdash; token-level routing</h1>
+  <p class="note">Color = effective depth used by that token (gate values summed across all 12 layers), continuous
+    0&ndash;12, same scale in every column below. This is Phase 1 <em>soft</em> routing: no token is
+    literally skipped yet, every token still passes through every layer, but a lighter color means that layer's
+    contribution was mostly gated out for that token. Hover a token to see its exact depth.</p>
+  <div class="legend">
+    <div class="legend-bar"></div>
+    <div class="legend-labels"><span>0 layers</span><span>12 layers</span></div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <h2>adaptive_target2</h2>
+      <div class="sentence"><strong>Hand-written 1:</strong><br><span class="tok" style="background:#fedc7c"
+          title="depth=2.78">The</span><span class="tok" style="background:#fed36f" title="depth=3.24">
+          quick</span><span class="tok" style="background:#fed673" title="depth=3.13"> brown</span><span class="tok"
+          style="background:#fed977" title="depth=2.98"> fox</span><span class="tok" style="background:#fed673"
+          title="depth=3.13"> jumps</span><span class="tok" style="background:#fed976" title="depth=3.04">
+          over</span><span class="tok" style="background:#fee084" title="depth=2.53"> the</span><span class="tok"
+          style="background:#fed774" title="depth=3.06"> lazy</span><span class="tok" style="background:#fedd7f"
+          title="depth=2.68"> dog</span><span class="tok" style="background:#fedc7c" title="depth=2.81">.</span></div>
+      <div class="sentence"><strong>Hand-written 2:</strong><br><span class="tok" style="background:#fedc7c"
+          title="depth=2.78">The</span><span class="tok" style="background:#fedb7b" title="depth=2.82">
+          mitochond</span><span class="tok" style="background:#fed774" title="depth=3.08">ria</span><span class="tok"
+          style="background:#fedd7e" title="depth=2.76"> is</span><span class="tok" style="background:#fedf83"
+          title="depth=2.54"> the</span><span class="tok" style="background:#fed36f" title="depth=3.26">
+          powerhouse</span><span class="tok" style="background:#fedd7e" title="depth=2.74"> of</span><span class="tok"
+          style="background:#fede82" title="depth=2.58"> the</span><span class="tok" style="background:#fedd7f"
+          title="depth=2.69"> cell</span><span class="tok" style="background:#fee085" title="depth=2.46">,</span><span
+          class="tok" style="background:#fedf83" title="depth=2.56"> according</span><span class="tok"
+          style="background:#fedd7e" title="depth=2.75"> to</span><span class="tok" style="background:#fed976"
+          title="depth=3.04"> quantum</span><span class="tok" style="background:#fed976" title="depth=3.02">
+          photos</span><span class="tok" style="background:#fed470" title="depth=3.23">ynthesis</span><span class="tok"
+          style="background:#fedd7e" title="depth=2.74"> apparatus</span><span class="tok" style="background:#fedd7e"
+          title="depth=2.73">.</span></div>
+      <div class="sentence"><strong>Hand-written 3:</strong><br><span class="tok" style="background:#fecb67"
+          title="depth=3.56">She</span><span class="tok" style="background:#fedb7b" title="depth=2.82"> said</span><span
+          class="tok" style="background:#fede80" title="depth=2.66"> that</span><span class="tok"
+          style="background:#fee288" title="depth=2.38"> she</span><span class="tok" style="background:#fee085"
+          title="depth=2.46"> would</span><span class="tok" style="background:#fed36f" title="depth=3.25">
+          probably</span><span class="tok" style="background:#fee085" title="depth=2.46"> go</span><span class="tok"
+          style="background:#fedb7b" title="depth=2.84"> to</span><span class="tok" style="background:#fee288"
+          title="depth=2.37"> the</span><span class="tok" style="background:#fee084" title="depth=2.53">
+          store</span><span class="tok" style="background:#fede80" title="depth=2.65"> if</span><span class="tok"
+          style="background:#fee289" title="depth=2.34"> it</span><span class="tok" style="background:#fede80"
+          title="depth=2.64"> stopped</span><span class="tok" style="background:#fed16e" title="depth=3.32">
+          raining</span><span class="tok" style="background:#fedb7a" title="depth=2.87">.</span></div>
+      <div class="sentence"><strong>Real WikiText-103 validation snippet:</strong><br><span class="tok"
+          style="background:#fed976" title="depth=3.02"> gave</span><span class="tok" style="background:#fede82"
+          title="depth=2.60"> Richmond</span><span class="tok" style="background:#feda78" title="depth=2.95">
+          a</span><span class="tok" style="background:#fede82" title="depth=2.61"> test</span><span class="tok"
+          style="background:#fedb7a" title="depth=2.87"> at</span><span class="tok" style="background:#fee084"
+          title="depth=2.53"> Willow</span><span class="tok" style="background:#fedc7c" title="depth=2.79">
+          Spring</span><span class="tok" style="background:#fedc7c" title="depth=2.78"> where</span><span class="tok"
+          style="background:#fede80" title="depth=2.63"> he</span><span class="tok" style="background:#fede82"
+          title="depth=2.59"> had</span><span class="tok" style="background:#fed16e" title="depth=3.32">
+          previously</span><span class="tok" style="background:#fedb7a" title="depth=2.90"> set</span><span class="tok"
+          style="background:#fedc7c" title="depth=2.78"> the</span><span class="tok" style="background:#fede82"
+          title="depth=2.61"> student</span><span class="tok" style="background:#fedd7e" title="depth=2.75">
+          record</span><span class="tok" style="background:#ffe48c" title="depth=2.21"> .</span><span class="tok"
+          style="background:#fede80" title="depth=2.65"> Sant</span><span class="tok" style="background:#fedd7e"
+          title="depth=2.76">ello</span><span class="tok" style="background:#fed673" title="depth=3.13">
+          hired</span><span class="tok" style="background:#fedf83" title="depth=2.53"> Richmond</span><span class="tok"
+          style="background:#fee084" title="depth=2.49"> ,</span><span class="tok" style="background:#fedd7e"
+          title="depth=2.72"> who</span><span class="tok" style="background:#feda78" title="depth=2.94">
+          then</span><span class="tok" style="background:#fedc7c" title="depth=2.80"> qualified</span><span class="tok"
+          style="background:#fedb7b" title="depth=2.82"> 15</span></div>
+    </div>
+    <div class="column">
+      <h2>adaptive_target9</h2>
+      <div class="sentence"><strong>Hand-written 1:</strong><br><span class="tok" style="background:#f84628"
+          title="depth=7.72">The</span><span class="tok" style="background:#e9261f" title="depth=8.66">
+          quick</span><span class="tok" style="background:#fb4b29" title="depth=7.57"> brown</span><span class="tok"
+          style="background:#ef3323" title="depth=8.26"> fox</span><span class="tok" style="background:#d9131f"
+          title="depth=9.39"> jumps</span><span class="tok" style="background:#d00d21" title="depth=9.72">
+          over</span><span class="tok" style="background:#e0181d" title="depth=9.12"> the</span><span class="tok"
+          style="background:#d6111f" title="depth=9.50"> lazy</span><span class="tok" style="background:#e92720"
+          title="depth=8.59"> dog</span><span class="tok" style="background:#d6111f" title="depth=9.49">.</span></div>
+      <div class="sentence"><strong>Hand-written 2:</strong><br><span class="tok" style="background:#f84628"
+          title="depth=7.72">The</span><span class="tok" style="background:#fd8239" title="depth=6.25">
+          mitochond</span><span class="tok" style="background:#db141e" title="depth=9.32">ria</span><span class="tok"
+          style="background:#d7121f" title="depth=9.43"> is</span><span class="tok" style="background:#df171d"
+          title="depth=9.15"> the</span><span class="tok" style="background:#da141e" title="depth=9.35">
+          powerhouse</span><span class="tok" style="background:#d41020" title="depth=9.60"> of</span><span class="tok"
+          style="background:#e0181d" title="depth=9.11"> the</span><span class="tok" style="background:#e1191d"
+          title="depth=9.09"> cell</span><span class="tok" style="background:#d6111f" title="depth=9.51">,</span><span
+          class="tok" style="background:#ea2920" title="depth=8.57"> according</span><span class="tok"
+          style="background:#d51020" title="depth=9.54"> to</span><span class="tok" style="background:#ef3323"
+          title="depth=8.28"> quantum</span><span class="tok" style="background:#f94828" title="depth=7.64">
+          photos</span><span class="tok" style="background:#cb0a22" title="depth=9.90">ynthesis</span><span class="tok"
+          style="background:#d10e21" title="depth=9.69"> apparatus</span><span class="tok" style="background:#d41020"
+          title="depth=9.58">.</span></div>
+      <div class="sentence"><strong>Hand-written 3:</strong><br><span class="tok" style="background:#fc6832"
+          title="depth=6.85">She</span><span class="tok" style="background:#df171d" title="depth=9.16"> said</span><span
+          class="tok" style="background:#dd161d" title="depth=9.23"> that</span><span class="tok"
+          style="background:#df171d" title="depth=9.17"> she</span><span class="tok" style="background:#d30f20"
+          title="depth=9.64"> would</span><span class="tok" style="background:#c90823" title="depth=9.99">
+          probably</span><span class="tok" style="background:#ea2920" title="depth=8.55"> go</span><span class="tok"
+          style="background:#da141e" title="depth=9.33"> to</span><span class="tok" style="background:#dd161d"
+          title="depth=9.19"> the</span><span class="tok" style="background:#e8241f" title="depth=8.68">
+          store</span><span class="tok" style="background:#ca0923" title="depth=9.98"> if</span><span class="tok"
+          style="background:#cf0c21" title="depth=9.76"> it</span><span class="tok" style="background:#d9131f"
+          title="depth=9.39"> stopped</span><span class="tok" style="background:#ca0923" title="depth=9.98">
+          raining</span><span class="tok" style="background:#da141e" title="depth=9.34">.</span></div>
+      <div class="sentence"><strong>Real WikiText-103 validation snippet:</strong><br><span class="tok"
+          style="background:#f03523" title="depth=8.24"> gave</span><span class="tok" style="background:#f84628"
+          title="depth=7.69"> Richmond</span><span class="tok" style="background:#dd161d" title="depth=9.21">
+          a</span><span class="tok" style="background:#e7231e" title="depth=8.75"> test</span><span class="tok"
+          style="background:#d41020" title="depth=9.61"> at</span><span class="tok" style="background:#fc5d2e"
+          title="depth=7.17"> Willow</span><span class="tok" style="background:#ef3323" title="depth=8.27">
+          Spring</span><span class="tok" style="background:#cd0b22" title="depth=9.88"> where</span><span class="tok"
+          style="background:#d41020" title="depth=9.60"> he</span><span class="tok" style="background:#d10e21"
+          title="depth=9.66"> had</span><span class="tok" style="background:#c70723" title="depth=10.08">
+          previously</span><span class="tok" style="background:#df171d" title="depth=9.14"> set</span><span class="tok"
+          style="background:#e31a1c" title="depth=8.96"> the</span><span class="tok" style="background:#eb2b21"
+          title="depth=8.50"> student</span><span class="tok" style="background:#e41c1d" title="depth=8.91">
+          record</span><span class="tok" style="background:#e2191c" title="depth=9.01"> .</span><span class="tok"
+          style="background:#fc572c" title="depth=7.31"> Sant</span><span class="tok" style="background:#e61f1d"
+          title="depth=8.83">ello</span><span class="tok" style="background:#c90823" title="depth=9.99">
+          hired</span><span class="tok" style="background:#ef3323" title="depth=8.28"> Richmond</span><span class="tok"
+          style="background:#e6211e" title="depth=8.79"> ,</span><span class="tok" style="background:#d41020"
+          title="depth=9.57"> who</span><span class="tok" style="background:#d30f20" title="depth=9.65">
+          then</span><span class="tok" style="background:#d7121f" title="depth=9.43"> qualified</span><span class="tok"
+          style="background:#ed2e21" title="depth=8.42"> 15</span></div>
+    </div>
+  </div>
+</body>
+
+</html>

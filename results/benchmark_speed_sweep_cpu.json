@@ -1,0 +1,153 @@
+{
+  "device": "cpu",
+  "warmup": 1,
+  "iters": 2,
+  "shapes": [
+    [
+      1,
+      64
+    ],
+    [
+      4,
+      64
+    ]
+  ],
+  "compile_attempted": true,
+  "checkpoint_run_name": null,
+  "capacities": [
+    0.5,
+    0.75
+  ],
+  "variants_by_capacity": {
+    "0.5000": {
+      "baseline": {
+        "eager": {
+          "1x64": {
+            "mean_s": 0.10004214999935357,
+            "median_s": 0.11178099999960978,
+            "min_s": 0.08830329999909736,
+            "max_s": 0.11178099999960978,
+            "iters": 2
+          },
+          "4x64": {
+            "mean_s": 0.28536110000277404,
+            "median_s": 0.28611139999702573,
+            "min_s": 0.28461080000852235,
+            "max_s": 0.28611139999702573,
+            "iters": 2
+          }
+        },
+        "compiled": {
+          "error": "InvalidCxxCompiler: Compiler: cl is not found.\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+        }
+      },
+      "adaptive_dense": {
+        "eager": {
+          "1x64": {
+            "mean_s": 0.05959720000100788,
+            "median_s": 0.06534950000059325,
+            "min_s": 0.0538449000014225,
+            "max_s": 0.06534950000059325,
+            "iters": 2
+          },
+          "4x64": {
+            "mean_s": 0.2441954000023543,
+            "median_s": 0.24634969999897294,
+            "min_s": 0.24204110000573564,
+            "max_s": 0.24634969999897294,
+            "iters": 2
+          }
+        },
+        "compiled": {
+          "error": "InvalidCxxCompiler: Compiler: cl is not found.\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+        }
+      },
+      "adaptive_hard_skip": {
+        "eager": {
+          "1x64": {
+            "mean_s": 0.08881614999700105,
+            "median_s": 0.09658139999373816,
+            "min_s": 0.08105090000026394,
+            "max_s": 0.09658139999373816,
+            "iters": 2
+          },
+          "4x64": {
+            "mean_s": 0.25244470000325236,
+            "median_s": 0.2644734000059543,
+            "min_s": 0.2404160000005504,
+            "max_s": 0.2644734000059543,
+            "iters": 2
+          }
+        },
+        "compiled": {
+          "error": "InvalidCxxCompiler: Compiler: cl is not found.\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+        }
+      }
+    },
+    "0.7500": {
+      "baseline": {
+        "eager": {
+          "1x64": {
+            "mean_s": 0.08892435000598198,
+            "median_s": 0.09473730000900105,
+            "min_s": 0.08311140000296291,
+            "max_s": 0.09473730000900105,
+            "iters": 2
+          },
+          "4x64": {
+            "mean_s": 0.3100759000008111,
+            "median_s": 0.3329366999969352,
+            "min_s": 0.287215100004687,
+            "max_s": 0.3329366999969352,
+            "iters": 2
+          }
+        },
+        "compiled": {
+          "error": "InvalidCxxCompiler: Compiler: cl is not found.\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+        }
+      },
+      "adaptive_dense": {
+        "eager": {
+          "1x64": {
+            "mean_s": 0.09732269999949494,
+            "median_s": 0.1028533999924548,
+            "min_s": 0.09179200000653509,
+            "max_s": 0.1028533999924548,
+            "iters": 2
+          },
+          "4x64": {
+            "mean_s": 0.29459970000607427,
+            "median_s": 0.3011709999991581,
+            "min_s": 0.28802840001299046,
+            "max_s": 0.3011709999991581,
+            "iters": 2
+          }
+        },
+        "compiled": {
+          "error": "InvalidCxxCompiler: Compiler: cl is not found.\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+        }
+      },
+      "adaptive_hard_skip": {
+        "eager": {
+          "1x64": {
+            "mean_s": 0.1073315499961609,
+            "median_s": 0.11527029999706428,
+            "min_s": 0.09939279999525752,
+            "max_s": 0.11527029999706428,
+            "iters": 2
+          },
+          "4x64": {
+            "mean_s": 0.2804854499918292,
+            "median_s": 0.28486819998943247,
+            "min_s": 0.276102699994226,
+            "max_s": 0.28486819998943247,
+            "iters": 2
+          }
+        },
+        "compiled": {
+          "error": "InvalidCxxCompiler: Compiler: cl is not found.\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n"
+        }
+      }
+    }
+  }
+}

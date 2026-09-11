@@ -1,0 +1,18 @@
+{
+  "run_name": "adaptive_v1",
+  "router_type": "learned_gate",
+  "mode": "mlp_only",
+  "seed": 1337,
+  "eval_iters": 20,
+  "batch_size": 32,
+  "block_size": 256,
+  "n_layer": 12,
+  "capacity": 0.5066450039545695,
+  "capacity_source": "real logged val_avg_depth (6.0797) / n_layer -- achieved, not target",
+  "trained_avg_depth": 6.079740047454834,
+  "dense_val_lm_local": 3.8134199738502503,
+  "dense_val_lm_training_logged": 3.813508987426758,
+  "hard_skip_val_lm": 7.259556579589844,
+  "hard_skip_val_avg_depth": 4.097754192352295,
+  "delta_hard_skip_minus_dense": 3.4461366057395932
+}
