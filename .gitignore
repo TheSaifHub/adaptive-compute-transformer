@@ -19,10 +19,10 @@ experiments/*/checkpoints/
 .idea/
 
 # .md files
-CLAUDE.md
-DECISIONS.md
-interview-prep.md
-learning.md
-memory.md
-product.md
-final-interview-prep.md
+approach1.md
+approach2.md
+approach3.md
+approach4.md
+approach5.md
+approach6.md
+approach7.md

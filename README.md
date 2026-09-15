@@ -231,11 +231,7 @@ Every Colab and Kaggle notebook in this repo materializes its code directly from
 │   └── plot_curve.py / plot_ablation.py / plot_topk_curve.py / plot_speed_vs_accuracy.py
 ├── docs/                        Self-contained Colab/Kaggle notebooks (%%writefile-materialized)
 ├── experiments/                 Per-run config.json + train_log.jsonl + ckpt.pt
-├── results/                     Generated charts and benchmark JSON
-├── CLAUDE.md                    Project brief and engineering discipline
-├── DECISIONS.md                 Every real engineering decision, dated, with reasoning
-├── memory.md / learning.md      Full session-by-session history
-└── interview-prep.md / final-interview-prep.md   Verified Q&A, including the completion audit
+└── results/                     Generated charts and benchmark JSON
 ```
 
 ## Reproducibility
